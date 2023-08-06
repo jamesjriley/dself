@@ -47,12 +47,13 @@ jobs:
         gcloud config set project dself-395100
         gcloud app deploy
 
-    - name: Deploy to Google Cloud Storage or Firebase
+    - name: Build React app
+      run: |
+        npm run build
+      
+    - name: Deploy to Google Cloud Storage
       run: |
         gsutil rsync -R build gs://dself-main
-        # or
-        npm run build
-        firebase deploy --only hosting
 
     - name: Notify
       uses: dawidd6/action-send-mail@v2
