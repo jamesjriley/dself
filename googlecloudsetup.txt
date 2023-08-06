@@ -1,0 +1,36 @@
+Google Cloud SDK 441.0.0
+bq 2.0.95
+bundled-python3-unix 3.9.16
+core 2023.07.28
+gcloud-crc32c 1.0.0
+gsutil 5.25
+
+[core]
+account = expatty@gmail.com
+disable_usage_reporting = False
+project = dself-395100
+
+Your active configuration is: [dself]
+$ gcloud services list
+NAME                                 TITLE
+bigquery.googleapis.com              BigQuery API
+bigquerymigration.googleapis.com     BigQuery Migration API
+bigquerystorage.googleapis.com       BigQuery Storage API
+cloudapis.googleapis.com             Google Cloud APIs
+cloudresourcemanager.googleapis.com  Cloud Resource Manager API
+cloudtrace.googleapis.com            Cloud Trace API
+datastore.googleapis.com             Cloud Datastore API
+dialogflow.googleapis.com            Dialogflow API
+firebaserules.googleapis.com         Firebase Rules API
+firestore.googleapis.com             Cloud Firestore API
+language.googleapis.com              Cloud Natural Language API
+logging.googleapis.com               Cloud Logging API
+monitoring.googleapis.com            Cloud Monitoring API
+pubsub.googleapis.com                Cloud Pub/Sub API
+servicemanagement.googleapis.com     Service Management API
+serviceusage.googleapis.com          Service Usage API
+sql-component.googleapis.com         Cloud SQL
+storage-api.googleapis.com           Google Cloud Storage JSON API
+storage-component.googleapis.com     Cloud Storage
+storage.googleapis.com               Cloud Storage API
+texttospeech.googleapis.com          Cloud Text-to-Speech API
