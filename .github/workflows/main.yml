@@ -64,5 +64,5 @@ jobs:
         password: ${{ secrets.MAIL_PASSWORD }}
         subject: GitHub Actions job result
         to: expatty@gmail.com
-        from: James Riley <expatty@gmail.com>
+        from: Digital Self <dselfapp@gmail.com>
         body: Job ${{ github.job }} in workflow ${{ github.workflow }} of ${{ github.repository }} completed with conclusion ${{ job.status }}.
