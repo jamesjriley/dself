@@ -55,14 +55,14 @@ jobs:
       run: |
         gsutil rsync -R build gs://dself-main
 
-    - name: Notify
-      uses: dawidd6/action-send-mail@v2
-      with:
-        server_address: smtp.gmail.com
-        server_port: 465
-        username: ${{ secrets.MAIL_USERNAME }}
-        password: ${{ secrets.MAIL_PASSWORD }}
-        subject: GitHub Actions job result
-        to: expatty@gmail.com
-        from: Digital Self <dselfapp@gmail.com>
-        body: Job ${{ github.job }} in workflow ${{ github.workflow }} of ${{ github.repository }} completed with conclusion ${{ job.status }}.
+#    - name: Notify
+#      uses: dawidd6/action-send-mail@v2
+#      with:
+#        server_address: smtp.sendgrid.net
+#        server_port: 465
+#        username: ${{ secrets.MAIL_USERNAME }}
+#        password: ${{ secrets.MAIL_PASSWORD }}
+#        subject: GitHub Actions job result
+#        to: expatty@gmail.com
+#        from: Digital Self <dselfapp@gmail.com>
+#        body: Job ${{ github.job }} in workflow ${{ github.workflow }} of ${{ github.repository }} completed with conclusion ${{ job.status }}.
