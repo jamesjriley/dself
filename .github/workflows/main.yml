@@ -47,9 +47,76 @@ jobs:
         gcloud config set project dself-395100
         gcloud app deploy
 
-    - name: Build React app
-      run: |
-        npm run build
+        name: CI/CD Pipeline
+
+        on:
+          push:
+            branches:
+              - master
+        
+        jobs:
+          build:
+        
+            runs-on: ubuntu-latest
+        
+            steps:
+            - uses: actions/checkout@v2
+        
+            - name: Set up Python
+              uses: actions/setup-python@v2
+              with:
+                python-version: 3.9
+        
+            - name: Install Python dependencies
+              run: |
+                python -m pip install --upgrade pip
+                pip install -r requirements.txt
+        
+            - name: Set up Node
+              uses: actions/setup-node@v2
+              with:
+                node-version: '16'
+        
+            - name: Install Node dependencies
+              run: |
+                npm install
+        
+            - name: Run Python tests
+              run: |
+                python -m unittest discover -s tests
+        
+            - name: Run Node tests
+              run: |
+                npm test
+        
+            - name: Build React app
+              run: |
+                npm run build
+
+            - name: Deploy to Google App Engine
+              run: |
+                echo '${{ secrets.GCP_SA_KEY }}' | base64 --decode > ./gcp-key.json
+                gcloud auth activate-service-account --key-file=gcp-key.json
+                gcloud config set project dself-395100
+                gcloud app deploy
+        
+              
+            - name: Deploy to Google Cloud Storage
+              run: |
+                gsutil rsync -R build gs://dself-main
+        
+        #    - name: Notify
+        #      uses: dawidd6/action-send-mail@v2
+        #      with:
+        #        server_address: smtp.sendgrid.net
+        #        server_port: 465
+        #        username: ${{ secrets.MAIL_USERNAME }}
+        #        password: ${{ secrets.MAIL_PASSWORD }}
+        #        subject: GitHub Actions job result
+        #        to: expatty@gmail.com
+        #        from: Digital Self <dselfapp@gmail.com>
+        #        body: Job ${{ github.job }} in workflow ${{ github.workflow }} of ${{ github.repository }} completed with conclusion ${{ job.status }}.
+        
       
     - name: Deploy to Google Cloud Storage
       run: |
