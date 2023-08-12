@@ -1,8 +1,13 @@
 // src/components/BaseCard.js
 import React from 'react';
+import { Card } from 'react-bootstrap';
 
-function BaseCard({ children, style }) {
-  return <div style={{ ...style, padding: '1rem', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }}>{children}</div>;
+function BaseCard({ children }) {
+  return (
+    <Card>
+      <Card.Body>{children}</Card.Body>
+    </Card>
+  );
 }
 
 export default BaseCard;

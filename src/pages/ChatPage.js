@@ -1,4 +1,4 @@
-// src/containers/ChatPage.js
+// src/pages/ChatPage.js
 import React, { useState } from 'react';
 import BaseInput from '../components/BaseInput';
 import BaseButton from '../components/BaseButton';
@@ -26,8 +26,6 @@ function ChatPage() {
     <div style={{ maxWidth: '600px', margin: '0 auto' }}>
       <h1>Chat with Support</h1>
       <ChatWindow messages={messages} />
-      <BaseInput type="text" placeholder="Type a message..." onChange={handleInputChange} value={inputText} />
-      <BaseButton label="Send" onClick={handleSendMessage} />
     </div>
   );
 }
