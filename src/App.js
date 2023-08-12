@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from './assets/logo.svg';
+import ChatPage from './containers/ChatPage';
 import './App.css';
 
 function App() {
