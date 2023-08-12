@@ -49,13 +49,6 @@ jobs:
         gcloud auth activate-service-account --key-file=gcp-key.json
         gcloud config set project dself-395100
         gcloud app deploy
-
-        name: CI/CD Pipeline
-
-        on:
-          push:
-            branches:
-              - master
       
     - name: Deploy to Google Cloud Storage
       run: |
