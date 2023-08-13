@@ -1,9 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
-import { Navbar, Nav } from 'react-bootstrap'; // Importing Bootstrap components
+import { Navbar, Nav, Container, Row, Col } from 'react-bootstrap'; // Importing Bootstrap components
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import DashboardPage from './pages/DashboardPage';
+import PrivacyPage from './pages/PrivacyPage'; // Make sure to update the file name
+import ToSPage from './pages/ToSPage';
 import { ChatProvider } from './contexts/ChatContext';
 import './App.css';
 
@@ -26,7 +28,26 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/dashboard" element={<DashboardPage />} />
+          <Route path="/privacy" element={<PrivacyPage />} />
+          <Route path="/tos" element={<ToSPage />} />
         </Routes>
+        <footer className="footer">
+          <Container>
+            <Row>
+              <Col>
+                <Nav className="justify-content-center">
+                  <Nav.Link as={Link} to="/privacy">Privacy Policy</Nav.Link>
+                  <Nav.Link as={Link} to="/tos">Terms of Service</Nav.Link>
+                </Nav>
+              </Col>
+            </Row>
+            <Row>
+              <Col className="text-center">
+                <p>&copy; {new Date().getFullYear()} digital Self</p>
+              </Col>
+            </Row>
+          </Container>
+        </footer>
       </Router>
     </ChatProvider>
   );
