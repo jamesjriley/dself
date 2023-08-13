@@ -1,7 +1,7 @@
 // src/pages/ChatPage.js
 import React, { useState } from 'react';
-import BaseInput from '../components/BaseInput';
-import BaseButton from '../components/BaseButton';
+//import BaseInput from '../components/BaseInput';
+//import BaseButton from '../components/BaseButton';
 import ChatWindow from '../components/ChatWindow';
 import { useChat } from '../contexts/ChatContext'; // Import the useChat hook
 
@@ -9,6 +9,7 @@ function ChatPage() {
   const { chats, addChat } = useChat(); // Destructure chats and addChat from the context
   const [inputText, setInputText] = useState('');
 
+/*
   const handleInputChange = (e) => {
     setInputText(e.target.value);
   };
@@ -20,7 +21,7 @@ function ChatPage() {
       setInputText('');
     }
   };
-
+*/
   return (
     <div style={{ maxWidth: '600px', margin: '0 auto' }}>
       <h1>Chat with Support</h1>
