@@ -1,5 +1,6 @@
 // src/pages/ChatPage.js
-import React, { useState } from 'react';
+import React from 'react';
+//import React, { useState } from 'react';
 //import BaseInput from '../components/BaseInput';
 //import BaseButton from '../components/BaseButton';
 import ChatWindow from '../components/ChatWindow';
