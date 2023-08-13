@@ -6,8 +6,9 @@ import ChatWindow from '../components/ChatWindow';
 import { useChat } from '../contexts/ChatContext'; // Import the useChat hook
 
 function ChatPage() {
-  const { chats, addChat } = useChat(); // Destructure chats and addChat from the context
-  const [inputText, setInputText] = useState('');
+  const { chats } = useChat(); // Destructure chats and addChat from the context
+//  const { chats, addChat } = useChat(); // Destructure chats and addChat from the context
+//  const [inputText, setInputText] = useState('');
 
 /*
   const handleInputChange = (e) => {
