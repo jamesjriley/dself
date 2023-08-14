@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 function LoginPage() {
   // Function to handle the login button click
@@ -7,10 +7,23 @@ function LoginPage() {
     window.location.href = '/auth/google';
   };
 
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    fetch('/api/user')
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.email) { // Check that the response contains user information
+          setUser(data);
+        }
+      });
+  }, []);
+
   return (
     <div>
-      <h1>Please Log In here</h1>
-      <button onClick={handleLoginClick}>Log In with Google</button>
+      {user ? <h1>Welcome, {user.email}!</h1> : <div><h1>Please Log In here</h1><button onClick={handleLoginClick}>Log In with Google</button></div>}
+ 
+      
     </div>
   );
 }

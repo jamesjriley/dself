@@ -1,8 +1,13 @@
-// src/pages/DashboardPage.js
-import React from 'react';
+import React, { useState } from 'react';
 
 function DashboardPage() {
-  return <div>Welcome to the Dashboard</div>;
+  const [user, setUser] = useState(null);
+
+  return (
+    <div>
+      <h1>Dashboard</h1>
+    </div>
+  );
 }
 
 export default DashboardPage;

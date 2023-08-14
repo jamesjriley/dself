@@ -1,4 +1,5 @@
-from flask import Blueprint, redirect, url_for
+# in file app/auth/oauth.py
+from flask import Blueprint, redirect, url_for, jsonify, session
 from authlib.integrations.flask_client import OAuth
 
 auth_bp = Blueprint('auth', __name__)
@@ -30,7 +31,16 @@ def configure_oauth(app, client_id, client_secret):
         token = google.authorize_access_token()
         resp = google.get('userinfo')
         user_info = resp.json()
+        print("User Info:", user_info)  # Print user information
+        # Store user_info in the session
+        session['user_info'] = user_info
+
         # ... process user_info and log the user in ...
         return redirect('/')  # Redirect to the home page or dashboard
 
+    @app.route('/api/user')
+    def get_user():
+        user_info = session.get('user_info', None)
+        return jsonify(user_info)
+    
     return google
