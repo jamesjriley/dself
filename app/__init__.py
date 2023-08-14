@@ -21,12 +21,10 @@ def create_app():
     # Register the authentication Blueprint
     app.register_blueprint(auth_bp)
 
-
-    # Catch-all route to serve React app for any path not handled by Flask
+    # Serve React app's index.html file for all unmatched routes
     @app.route('/', defaults={'path': ''})
     @app.route('/<path:path>')
-    def index(path):
+    def catch_all(path):
         return send_from_directory(app.static_folder, 'index.html')
-
 
     return app

@@ -12,7 +12,7 @@ import './App.css';
 function App() {
   return (
     <ChatProvider>
-      <Router>
+      <Router basename="/">
         <Navbar bg="light" expand="lg">
           <Navbar.Brand as={Link} to="/">digital Self</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
