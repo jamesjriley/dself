@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 function DashboardPage() {
-  const [user, setUser] = useState(null);
+//  const [user, setUser] = useState(null);
 
   return (
     <div>
