@@ -13,17 +13,19 @@ function LoginPage() {
     fetch('/api/user')
       .then((response) => response.json())
       .then((data) => {
-        if (data.email) { // Check that the response contains user information
+        if (data && data.email) { // Check if data is not null and contains email property
           setUser(data);
         }
+      })
+      .catch((error) => {
+        console.error("Error fetching user data:", error);
       });
   }, []);
+  
 
   return (
     <div>
       {user ? <h1>Welcome, {user.email}!</h1> : <div><h1>Please Log In here</h1><button onClick={handleLoginClick}>Log In with Google</button></div>}
- 
-      
     </div>
   );
 }
