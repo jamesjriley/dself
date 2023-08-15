@@ -1,3 +1,8 @@
+google-auth
+google-auth-oauthlib
+authlib
+flask_cors
+
 Authlib==1.2.1
 blinker==1.6.2
 cachelib==0.10.2
