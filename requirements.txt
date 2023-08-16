@@ -2,6 +2,7 @@ google-auth
 google-auth-oauthlib
 authlib
 flask_cors
+appengine-python-standard
 
 Authlib==1.2.1
 blinker==1.6.2
