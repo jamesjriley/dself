@@ -14,21 +14,13 @@
 │   ├── static
 │   ├── templates
 │   └── views
-├── app.py
 ├── app.yaml
 ├── build
-│   ├── asset-manifest.json
 │   ├── favicon.ico
-│   ├── index.html
 │   ├── logo192.png
 │   ├── logo512.png
 │   ├── manifest.json
-│   ├── precache-manifest.113e7336216fa4945438e2c7e1122b96.js
-│   ├── robots.txt
-│   ├── service-worker.js
-│   └── static
-│       ├── css
-│       └── js
+│   └── robots.txt
 ├── firebase.json
 ├── firestore.indexes.json
 ├── firestore.rules
@@ -37,6 +29,7 @@
 │   ├── dself-395100-6c941512c5d6.json
 │   └── sendgrid
 ├── ls.txt
+├── main.py
 ├── node_modules
 │   ├── abab
 │   │   ├── index.d.ts
@@ -8622,7 +8615,8 @@
 │   │   ├── ChatWindow.js
 │   │   └── Message.js
 │   ├── contexts
-│   │   └── ChatContext.js
+│   │   ├── ChatContext.js
+│   │   └── UserContext.js
 │   ├── firestore.rules
 │   ├── index.css
 │   ├── index.js
@@ -8631,6 +8625,7 @@
 │   │   ├── DashboardPage.js
 │   │   ├── HomePage.js
 │   │   ├── LoginPage.js
+│   │   ├── PreferencesPage.js
 │   │   ├── PrivacyPage.js
 │   │   └── ToSPage.js
 │   ├── reportWebVitals.js
@@ -8681,4 +8676,4 @@
     ├── lib64 -> lib
     └── pyvenv.cfg
 
-2588 directories, 6093 files
+2585 directories, 6091 files

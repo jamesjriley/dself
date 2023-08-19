@@ -1,4 +1,7 @@
-import React, { useState, useEffect } from 'react';
+
+//in src/pages/LoginPage.js
+import React, { useEffect } from 'react';
+import { useUser } from '../contexts/UserContext'; // Import useUser hook
 
 function LoginPage() {
   // Function to handle the login button click
@@ -7,14 +10,14 @@ function LoginPage() {
     window.location.href = '/auth/google';
   };
 
-  const [user, setUser] = useState(null);
+  const { user, setUser } = useUser(); // Get the setUser function from the context
 
   useEffect(() => {
     fetch('/api/user')
       .then((response) => response.json())
       .then((data) => {
         if (data && data.email) { // Check if data is not null and contains email property
-          setUser(data);
+          setUser(data); // Set the user in the context
         }
       })
       .catch((error) => {

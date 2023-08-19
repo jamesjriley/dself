@@ -1,7 +1,6 @@
 # in file app/auth/oauth.py
 from flask import Blueprint, redirect, url_for, jsonify, session
 from authlib.integrations.flask_client import OAuth
-
 auth_bp = Blueprint('auth', __name__)
 
 def configure_oauth(app, client_id, client_secret):
@@ -11,12 +10,13 @@ def configure_oauth(app, client_id, client_secret):
         name='google',
         client_id=client_id,
         client_secret=client_secret,
+        jwks_uri='https://www.googleapis.com/oauth2/v3/certs', # Add this line
         access_token_url='https://accounts.google.com/o/oauth2/token',
         access_token_params=None,
         authorize_url='https://accounts.google.com/o/oauth2/auth',
         authorize_params=None,
         api_base_url='https://www.googleapis.com/oauth2/v1/',
-        client_kwargs={'scope': 'email'}
+        client_kwargs={'scope': 'openid email profile'}
     )
 
     # Google login endpoint
@@ -41,6 +41,14 @@ def configure_oauth(app, client_id, client_secret):
     @app.route('/api/user')
     def get_user():
         user_info = session.get('user_info', None)
-        return jsonify(user_info)
+        if user_info:
+            user_data = {
+                'email': user_info['email'],
+                'profilePicture': user_info['picture']  # Profile picture URL
+            }
+            return jsonify(user_data)
+        else:
+            return jsonify(None)
+
     
     return google
