@@ -7,6 +7,7 @@ import DashboardPage from './pages/DashboardPage';
 import PreferencesPage from './pages/PreferencesPage';
 import PrivacyPage from './pages/PrivacyPage'; // Make sure to update the file name
 import ToSPage from './pages/ToSPage';
+import Logout from './components/Logout'; // Import the Logout component
 import { ChatProvider } from './contexts/ChatContext';
 import { useUser } from './contexts/UserContext'; // Import useUser hook
 import './App.css';
@@ -29,7 +30,8 @@ function App() {
             {user && (
               <Nav>
                 <img src={user.profilePicture} alt="Profile" width="30" height="30" />
-                <span>{user.email}</span>
+                <span>{user.email}</span> 
+                <Logout /> {/* Include the Logout component */}
               </Nav>
             )}
           </Navbar.Collapse>

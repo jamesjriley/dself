@@ -1,3 +1,4 @@
+# in file app/config/secrets.py
 from google.cloud import secretmanager
 
 def get_secret(project_id, secret_name, version="latest"):
